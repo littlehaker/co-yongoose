@@ -13,14 +13,15 @@ function CoYongoose() {
     return this;
   },
   this.include = function(model_path) {
-    require(model_path);
+    require(path.resolve(model_path));
     return this;
   },
   this.includeDir = function(dir_path) {
+    var self = this;
     dir_path = path.resolve(dir_path);
     var files = fs.readdirSync(dir_path);
     files.forEach(function(file){
-      require(dir_path + '/' + file);
+      self.include(dir_path + '/' + file);
     });
     return this;
   },
@@ -37,7 +38,20 @@ function CoYongoose() {
 }
 
 if (!module.parent) {
-  new CoYongoose().connect().start();
+  var program = require('commander');
+  program
+    .version('0.0.1')
+    .option('-i, --include [model]', 'Include models')
+    .option('-d, --dir [model directory]', 'Include model directory')
+    .parse(process.argv);
+  var yongoose = new CoYongoose().connect(program.args[0])
+  if (program.include) {
+    yongoose.include(program.include)
+  }
+  if (program.dir) {
+    yongoose.includeDir(program.dir)
+  }
+  yongoose.start();
 } else {
   module.exports = CoYongoose
 }

@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "co-yongoose": "./index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/littlehaker/co-yongoose.git"
@@ -23,6 +26,7 @@
   "dependencies": {
     "co-repl": "0.0.2",
     "mongoose-q": "0.0.6",
-    "mongoose": "~3.8.3"
+    "mongoose": "~3.8.3",
+    "commander": "~2.1.0"
   }
 }
