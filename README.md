@@ -6,17 +6,15 @@ A mongoose REPL with yield support, based on [Co](https://github.com/visionmedia
 ## Install
 
 ```
-npm install -g co-yongoose
+npm install co-yongoose
 ```
 
 ## Usage
 
 ```
-$ co-yongoose -i example/models/post.js mongodb://localhost/test
+$ node --harmony examples/index.js 
 > Model loaded:  Post
 > post = new Post({title: 'foo'})
 > yield post.saveQ()
 > yield Post.findQ()
 ```
-
-For more args, type `co-yongoose -h`

@@ -28,16 +28,19 @@ function CoYongoose() {
   this.start = function() {
     var self = this;
     var repl = REPL.start();
-    Object.keys(this.mongoose.models).forEach(function(key) {
+    var keys = Object.keys(this.mongoose.models);
+    for(var index in keys) {
+      var key = keys[index];
       repl.context[key] = self.mongoose.models[key];
       console.log('Model loaded: ', key);
-    });
+    }
     repl.displayPrompt();
     return this;
   }
 }
 
 if (!module.parent) {
+  // FIXME: when using as a global tool, it has different mongoose instance.
   var program = require('commander');
   program
     .version('0.0.1')
