@@ -1,0 +1,28 @@
+{
+  "name": "co-yongoose",
+  "version": "0.0.1",
+  "description": "A mongoose REPL with yield",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/littlehaker/co-yongoose.git"
+  },
+  "keywords": [
+    "mongoose",
+    "co"
+  ],
+  "author": "Uno Young <littlehaker@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/littlehaker/co-yongoose/issues"
+  },
+  "homepage": "https://github.com/littlehaker/co-yongoose",
+  "dependencies": {
+    "co-repl": "0.0.2",
+    "mongoose-q": "0.0.6",
+    "mongoose": "~3.8.3"
+  }
+}
