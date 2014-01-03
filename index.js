@@ -1,13 +1,14 @@
 #!/usr/bin/env node --harmony
 
 var REPL = require('co-repl');
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 var fs = require('fs');
 var path = require('path')
-require('mongoose-q')(mongoose)
+// require('mongoose-q')(mongoose)
 
-function CoYongoose() {
+function CoYongoose(mongoose) {
   this.mongoose = mongoose;
+  require('mongoose-q')(mongoose);
   this.connect = function(conn_str) {
     this.mongoose.connect(conn_str || 'mongodb://localhost/test');
     return this;
